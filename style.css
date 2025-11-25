@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    margin: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Efeito de fogo no background */
+.fire-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #1a0000 0%, #4a0000 25%, #8b0000 50%, #ff4500 75%, #ffa500 100%);
+    z-index: -1;
+}
+
+.fire-background::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 100, 0, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 0, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(255, 165, 0, 0.25) 0%, transparent 50%);
+    animation: fireAnimation 6s ease-in-out infinite;
+}
+
+.fire-2 {
+    background: linear-gradient(180deg, transparent 0%, rgba(139, 0, 0, 0.4) 30%, rgba(255, 69, 0, 0.5) 70%, transparent 100%);
+    animation: fireAnimation2 8s ease-in-out infinite;
+}
+
+.fire-2::before {
+    animation: fireAnimation 8s ease-in-out infinite reverse;
+}
+
+.fire-3 {
+    background: linear-gradient(180deg, transparent 0%, rgba(184, 15, 10, 0.3) 40%, rgba(255, 140, 0, 0.4) 80%, transparent 100%);
+    animation: fireAnimation2 7s ease-in-out infinite;
+}
+
+.fire-3::before {
+    animation: fireAnimation 7s ease-in-out infinite;
+}
+
+@keyframes fireAnimation {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(20px) scale(1.1);
+    }
+}
+
+@keyframes fireAnimation2 {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    width: 350px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 69, 0, 0.5), 0 0 50px rgba(255, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8b0000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.riven-container {
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(255, 69, 0, 0.3);
+}
+
+.riven-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.riven-image:hover {
+    transform: scale(1.05);
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+#item-input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+#btn-add {
+    padding: 8px 12px;
+    border: none;
+    background: #28a745;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#btn-add:hover {
+    background: #218838;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    background: #eee;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.comprado {
+    text-decoration: line-through;
+    color: #777;
+    background: #d4edda;
+}
+
+button.remover {
+    background: red;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.remover:hover {
+    background: darkred;
+}
